@@ -61,6 +61,7 @@ export default {
       autostampSettings: { on: false },
     };
   },
+
   methods: {
     autoStamp(cell) {
       if (this.autostampSettings.on) {
@@ -104,6 +105,7 @@ export default {
       this.autostampSettings = settings;
     },
   },
+
   computed: {
     allCellsCalled: function () {
       if (!this.card.allCells) {
@@ -132,11 +134,15 @@ export default {
       return false;
     },
   },
+
   watch: {
     card: function () {
-      this.stampCalledCells();
+      if (this.autostampSettings.on) {
+        this.stampCalledCells();
+      }
     },
   },
+
   beforeCreate() {
     var id = this.$route.params.id;
     var playerId = this.$cookies.get("userId");
@@ -163,6 +169,7 @@ export default {
       }
     });
   },
+
   beforeDestroy() {
     if (this.connection) {
       this.connection.close();

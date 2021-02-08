@@ -1,6 +1,6 @@
 <template>
   <v-card color="secondary_light" class="mx-auto pa-6">
-    <v-title><h3>Calling</h3></v-title>
+    <v-card-title><h3>Calling</h3></v-card-title>
     <v-divider />
 
     <v-card-text style="text-align: center">
